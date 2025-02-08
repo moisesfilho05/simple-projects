@@ -1,20 +1,30 @@
-let contatos = [];
+let contatos = JSON.parse(localStorage.getItem('contatos')) || [];
+
+const salvarNoLocalStorage = () => {
+    localStorage.setItem('contatos', JSON.stringify(contatos));
+};
   
 const adicionarContato = () => {
-    let nome = prompt('Digite o seu nome:');
-    let numero;
-    let validacao = false;
+    let nome, numero;
 
-    while (validacao === false) {
+    while (true) {
+        nome = prompt('Digite o seu nome:').trim();
+        if (nome || nome === 'cancelar') break;
+        alert("Nome inválido. Por favor, insira um nome válido.");
+    };
+    
+    if (nome === 'cancelar') return;
+    
+    while (true) {
         numero = prompt('Digite o seu número (ex: 9999999999):');
-
-        if (!(isNaN(parseInt(numero)) || ![10, 11].includes(numero.length))) {
-            validacao = true;
+        if (!(isNaN(parseInt(numero)) || ![10, 11].includes(numero.length)) || numero === 'cancelar') {
             break;
         } else {
             alert('Caracteres inválidos, digite novamente um número!');
         };
     };
+
+    if (numero === 'cancelar') return;
 
     const contato = {
         nome: nome,
@@ -23,7 +33,7 @@ const adicionarContato = () => {
 
     contatos.push(contato);
     console.log(contatos);
-
+    salvarNoLocalStorage()
     exibirContato();
 };
 
@@ -58,6 +68,7 @@ function exibirContato() {
 function excluirContato(index) {
     contatos = contatos.filter((item, indexItem) => indexItem !== index);
     exibirContato();
+    salvarNoLocalStorage()
 };
 
 exibirContato()
