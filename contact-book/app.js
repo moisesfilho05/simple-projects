@@ -27,18 +27,22 @@ const adicionarContato = () => {
     exibirContato();
 };
 
+function formatarNumero(numero) {
+    const ddd = numero.slice(0, 2)
+    const primeiraParte = numero.length === 10 ? numero.slice(2, 6) : numero.slice(2, 7);
+    const segundaParte = numero.length === 10 ? numero.slice(6, 10) : numero.slice(7, 11);
+    return `(${ddd}) ${primeiraParte}-${segundaParte}`;
+};
+
 function exibirContato() {
     let listaContatos = document.getElementById('listaContatos');
     listaContatos.innerHTML = '';
 
     contatos.forEach((contato, index) => {
         const div = document.createElement('div');
-        const ddd = contato.numero.slice(0, 2)
-        const primeiraParte = contato.numero.length === 10 ? contato.numero.slice(2, 6) : contato.numero.slice(2, 7)
-        const segundaParte = contato.numero.length === 10 ? contato.numero.slice(6, 10) : contato.numero.slice(7, 11)
-        const formatNumber = `(${ddd}) ${primeiraParte}-${segundaParte}`
+        const numeroFormatado = formatarNumero(contato.numero);
         div.innerHTML = `<p>nome: ${contato.nome}</p>
-        <p>número: ${formatNumber}</p>
+        <p>número: ${numeroFormatado}</p>
         <button onclick="excluirContato(${index})">deletar</button>
         <hr>`
         listaContatos.appendChild(div);
