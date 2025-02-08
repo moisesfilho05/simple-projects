@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+body {
+    font-family: 'Karla', sans-serif;
+}
+
+i {
+    background: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #eeeeee;
+}
+
+h1.titulo-agenda {
+    font-size: 20px;
+}
+
+.header-contato {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+    padding: 20px;
+    align-items: center;
+}
+
+button.adiciona-contato {
+    width: 150px;
+    padding: 10px 2px;
+    border-radius: 5px;
+    background: #55C873;
+    border: 0;
+    display: flex;
+    align-items: center;
+}
+
+button.adiciona-contato:hover {
+    opacity: 0.5;
+}
+
+.icon {
+    background: 0;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+img.avatar-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    margin: 10px;
+    padding: 5px;
+}
+
+div.container-contato {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    margin: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+div.contato {
+    display: flex;
+    align-items: center;
+}
+
+p.nome-contato {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button.botao-deletar {
+    border: 0;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    margin: 0px 20px;
+}
+
+ button.botao-deletar:hover {
+    opacity: 0.5;
+}
