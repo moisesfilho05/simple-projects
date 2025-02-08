@@ -33,8 +33,14 @@ function exibirContato() {
 
     contatos.forEach((contato, index) => {
         const div = document.createElement('div');
+        const ddd = contato.numero.slice(0, 2)
+        // 012345678910
+        // 11945304170
+        const primeiraParte = contato.numero.length === 10 ? contato.numero.slice(2, 6) : contato.numero.slice(2, 7)
+        const segundaParte = contato.numero.length === 10 ? contato.numero.slice(6, 10) : contato.numero.slice(7, 11)
+        const formatNumber = `(${ddd}) ${primeiraParte}-${segundaParte}`
         div.innerHTML = `<p>nome: ${contato.nome}</p>
-        <p>número: ${contato.numero}</p>
+        <p>número: ${formatNumber}</p>
         <button onclick="excluirContato(${index})">deletar</button>
         <hr>`
         listaContatos.appendChild(div);
