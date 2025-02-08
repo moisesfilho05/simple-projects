@@ -1,5 +1,5 @@
 let contatos = [];
-
+  
 const adicionarContato = () => {
     let nome = prompt('Digite o seu nome:');
     let numero;
@@ -41,10 +41,16 @@ function exibirContato() {
     contatos.forEach((contato, index) => {
         const div = document.createElement('div');
         const numeroFormatado = formatarNumero(contato.numero);
-        div.innerHTML = `<p>nome: ${contato.nome}</p>
-        <p>número: ${numeroFormatado}</p>
-        <button onclick="excluirContato(${index})">deletar</button>
-        <hr>`
+        div.innerHTML = `
+            <div class="container-contato">
+                <div class="contato">
+                    <img class="avatar-img" src="./img/avatar.png">
+                    <p class="nome-contato">${contato.nome}</p>
+                </div>
+                <p>${numeroFormatado}</p>
+                <button class="botao-deletar" onclick="excluirContato(${index})"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        `
         listaContatos.appendChild(div);
     });
 };
@@ -53,3 +59,5 @@ function excluirContato(index) {
     contatos = contatos.filter((item, indexItem) => indexItem !== index);
     exibirContato();
 };
+
+exibirContato()

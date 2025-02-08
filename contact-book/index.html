@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendas</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <h1>Agenda de Contatos</h1>
-    <button onclick="adicionarContato()">Adicionar contato</button>
-    <div id="listaContatos">
-
+    <div class="header-contato">
+        <h1 class="titulo-agenda">Agenda de Contatos</h1>
+        <button class="adiciona-contato" onclick="adicionarContato()">
+            <i class="fa-solid fa-circle-plus icon"></i>
+            Adicionar contato
+        </button>
     </div>
 
-    <script src="app.js"></script>
+    <div id="listaContatos"></div>
+
+    <!-- Script do aplicativo -->
+    <script src="app.js" defer></script>
 </body>
 
 </html>
