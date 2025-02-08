@@ -1,4 +1,4 @@
-const contatos = [];
+let contatos = [];
 
 const adicionarContato = () => {
     let nome = prompt('Digite o seu nome:');
@@ -17,12 +17,17 @@ function exibirContato() {
     let listaContatos = document.getElementById('listaContatos');
     listaContatos.innerHTML = '';
 
-    contatos.forEach(contato => {
+    contatos.forEach((contato, index) => {
         const div = document.createElement('div');
         div.innerHTML = `<p>nome: ${contato.nome}</p>
         <p>número: ${contato.numero}</p>
-        <button onclick="">deletar</button>
+        <button onclick="excluirContato(${index})">deletar</button>
         <hr>`
         listaContatos.appendChild(div);
     });
+};
+
+function excluirContato(index) {
+    contatos = contatos.filter((item, indexItem) => indexItem !== index)
+    exibirContato()
 };
